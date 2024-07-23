@@ -1,0 +1,7 @@
+apiVersion: v2
+name: rot13-dashboard
+description: rot13-dashboard Helm chart
+
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
