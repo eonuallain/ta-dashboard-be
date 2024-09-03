@@ -1,6 +1,6 @@
 apiVersion: v2
-name: rot13-dashboard
-description: rot13-dashboard Helm chart
+name: ta-dashboard
+description: ta-dashboard Helm chart
 
 type: application
 version: 1.0.0
