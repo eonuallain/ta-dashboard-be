@@ -1,13 +1,13 @@
-# rot13-dashboard
+# TA-Dashboard
 
 ## Pull docker image
 ```
-docker pull ghcr.io/eonuallain/rot13-dashboard:main
+docker pull ghcr.io/eonuallain/ta-dashboard:main
 ```
 
 ## Run docker image
 ```
-docker run -p5000:5000 ghcr.io/eonuallain/rot13-dashboard:main
+docker run -p5000:5000 ghcr.io/eonuallain/ta-dashboard:main
 ```
 
 ## Install minikube
@@ -21,17 +21,17 @@ minikube start
 
 ## Install chart
 ```
-helm install rot13-dashboard ./chart
+helm install ta-dashboard ./chart
 ```
 
 ## Uninstall chart
 ```
-helm uninstall rot13-dashboard
+helm uninstall ta-dashboard
 ```
 
 ## minikube show service URL
 ```
-minikube service rot13-dashboard --url
+minikube service ta-dashboard --url
 ```
 
 ## Install postgres
