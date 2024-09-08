@@ -13,12 +13,12 @@ pipx install poetry
 poetry completions bash >> ~/.bash_completion
 ```
 
-## Poetry
+## Poetry run lint and start flask app
 ```
 poetry shell
-poetry run pylint
+poetry run pylint ta/
+poetry run flask run
 ```
-
 
 ## Pull docker image
 ```
