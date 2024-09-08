@@ -1,5 +1,19 @@
 # TA-Dashboard
 
+## Install pipx
+```
+sudo apt install -y pipx
+pipx ensurepath
+eval "$(register-python-argcomplete pipx)"
+```
+
+## Install poetry
+```
+pipx install poetry
+poetry completions bash >> ~/.bash_completion
+```
+
+
 ## Pull docker image
 ```
 docker pull ghcr.io/eonuallain/ta-dashboard:main
