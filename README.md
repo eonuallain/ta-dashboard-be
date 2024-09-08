@@ -20,6 +20,11 @@ poetry run pylint ta/
 poetry run flask run
 ```
 
+## Run flask app locally
+```
+flask --app ta run --debug
+```
+
 ## Pull docker image
 ```
 docker pull ghcr.io/eonuallain/ta-dashboard:main

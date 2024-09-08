@@ -40,11 +40,14 @@
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">Text Analysis Dashboard ({{host}})</h1>
-            <p class="lead">Content</p>                
+            <h1 class="mt-5">Text Analysis Dashboard 2({{host}})</h1>
+            <p class="lead">Content</p>
+            {% block content %}
+            {% endblock %}
+                
         </div>
     </main>
-
+    
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <span class="text-muted">Footer</span>

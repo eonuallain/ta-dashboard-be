@@ -4,4 +4,21 @@
     super()
     {% block title %}Home{% endblock %}
 {% endblock %}
+{% block content %}
+
+    <form method="post">
+        <label for="title">Title</label>
+        <br>
+        <label for="content">Message Content</label>
+        <br>
+        <textarea name="content"
+                  placeholder="Message content"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['content'] }}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+
 
