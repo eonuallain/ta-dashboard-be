@@ -13,6 +13,12 @@ pipx install poetry
 poetry completions bash >> ~/.bash_completion
 ```
 
+## Poetry
+```
+poetry shell
+poetry run pylint
+```
+
 
 ## Pull docker image
 ```
