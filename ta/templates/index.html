@@ -5,20 +5,13 @@
     {% block title %}Home{% endblock %}
 {% endblock %}
 {% block content %}
-
-    <form method="post">
-        <label for="title">Title</label>
-        <br>
-        <label for="content">Message Content</label>
-        <br>
-        <textarea name="content"
+    <form method="post" action="/postmessage">
+        <textarea name="message"
                   placeholder="Message content"
-                  rows="15"
+                  rows="10"
                   cols="60"
-                  >{{ request.form['content'] }}</textarea>
+                  >{{ request.form['message'] }}</textarea>
         <br>
         <button type="submit">Submit</button>
     </form>
 {% endblock %}
-
-

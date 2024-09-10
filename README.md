@@ -17,7 +17,7 @@ poetry completions bash >> ~/.bash_completion
 ```
 poetry shell
 poetry run pylint ta/
-poetry run flask run
+poetry run flask --app ta run --debug
 ```
 
 ## Run flask app locally
