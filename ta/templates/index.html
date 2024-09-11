@@ -8,8 +8,9 @@
     <form method="post" action="/postmessage">
         <textarea name="message"
                   placeholder="Message content"
-                  rows="10"
+                  rows="6"
                   cols="60"
+                  required 
                   >{{ request.form['message'] }}</textarea>
         <br>
         <button type="submit">Submit</button>

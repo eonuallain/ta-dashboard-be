@@ -28,23 +28,28 @@ def post_message():
         print(data.values())
 
         if data['message'] is not None:
-            body = data['message']
+            body = data['message'].strip()
         else:
             body = str(data)
 
-        print(f"post_message() body: {body}")
+        body_len = len(body)
+        print(f"post_message() body: [{body_len}] {body}")
 
-        connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host='localhost')
-        )
+        if body_len == 0:
+            print(f"post_message() not posting as message length is {body_len}")
+            status = {"status" : "failure"}
+        else:
+            connection = pika.BlockingConnection(
+                pika.ConnectionParameters(host='localhost')
+            )
 
-        channel = connection.channel()
-        channel.queue_declare(queue='hello')
-        channel.basic_publish(exchange='', routing_key='hello', body=body)
+            channel = connection.channel()
+            channel.queue_declare(queue='hello')
+            channel.basic_publish(exchange='', routing_key='hello', body=body)
 
-        print("post_message() done")
-        connection.close()
-        status = {"status" : "success"}
+            print("post_message() done")
+            connection.close()
+            status = {"status" : "success"}
     except Exception as e:
         print(e)
         status = {"status" : "failure", "error" : str(e)}
