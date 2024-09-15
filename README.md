@@ -1,5 +1,12 @@
 # TA-Dashboard
 
+## Set up database
+```
+cd schema
+sudo -u postgres psql -f ./ta_dashboard_create.sql
+sudo -u postgres psql -f ./ta_dashboard_insert.sql
+
+```
 ## Install pipx
 ```
 sudo apt install -y pipx
