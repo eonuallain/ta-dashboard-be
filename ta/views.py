@@ -7,13 +7,18 @@ from flask import jsonify
 from flask import request, render_template
 
 from ta import app
+from ta import db
+from ta import model as models
 
 @app.route('/')
 def index():
     """The index page handler"""
     host = os.environ.get('HOSTNAME')
     print(f'host: {host}')
-    return render_template("index.html", host=host)
+
+    entries = models.TextEntry.query.all()
+    print(f"entries: {entries}")
+    return render_template("index.html", entries=entries)
 
 
 @app.route('/postmessage', methods=['POST'])
