@@ -20,8 +20,15 @@ pipx install poetry
 poetry completions bash >> ~/.bash_completion
 ```
 
+## Install libpq-dev
+Possibly need to install `libpq-dev` as required to install `psycopg2`
+```
+sudo apt install libpq-dev
+```
+
 ## Poetry run lint and start flask app
 ```
+poetry install
 poetry shell
 poetry run pylint ta/
 poetry run flask --app ta run --debug
