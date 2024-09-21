@@ -13,12 +13,13 @@ from ta import model as models
 @app.route('/')
 def index():
     """The index page handler"""
-    host = os.environ.get('HOSTNAME')
-    print(f'host: {host}')
-
-    entries = models.TextEntry.query.all()
-    print(f"entries: {entries}")
-    return render_template("index.html", entries=entries)
+    hostname = os.environ.get('HOSTNAME')
+    if hostname is None:
+        hostname = os.environ.get('HOST')
+    
+    #entries = models.TextEntry.query.all()
+    entry_count = models.TextEntry.query.count()
+    return render_template("index.html", host=hostname, count=entry_count)
 
 
 @app.route('/postmessage', methods=['POST'])

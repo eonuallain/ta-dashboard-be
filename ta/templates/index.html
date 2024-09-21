@@ -4,22 +4,20 @@
     super()
     {% block title %}Home{% endblock %}
 {% endblock %}
-{% block content %}
 
+{% block content %}
     <table class="table">
         <thead class="thead-dark">
             <tr>
-              <th scope="col">Text</th>
-              <th scope="col">Result</th>
+              <th scope="col">Type</th>
+              <th scope="col">Count</th>
             </tr>
         </thead>
         <tbody>
-            {% for entry in entries %}
             <tr>
-                <td>{{ entry['text'] }}</td>
-                <td>{{ entry['result'] }}</td>
+                <td>Text</td>
+                <td>{{ count }}</td>
             </tr>
-            {% endfor %}
         </tbody>
     </table>
 
