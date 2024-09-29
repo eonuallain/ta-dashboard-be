@@ -9,6 +9,7 @@ sudo -u postgres psql -f ./ta_dashboard_insert.sql
 ```
 ## Install pipx
 ```
+sudo apt install build-essential python3-dev
 sudo apt install -y pipx
 pipx ensurepath
 eval "$(register-python-argcomplete pipx)"

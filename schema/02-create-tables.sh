@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
-echo "running schema creation"
+echo "running inserts"
 
-psql ./ta_dashboard_tables.sql
+sudo -u postgres -i
+
+psql -U postgres -d ta_dashboard -a -f ./ta_dashboard_insert.sql
