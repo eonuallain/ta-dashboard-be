@@ -27,6 +27,11 @@ Possibly need to install `libpq-dev` as required to install `psycopg2`
 sudo apt install libpq-dev
 ```
 
+## Export environment variables to connect to local postgresql server
+```
+source ./schema/db.env
+```
+
 ## Poetry run lint and start flask app
 ```
 poetry install
