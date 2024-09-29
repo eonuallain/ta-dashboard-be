@@ -1,12 +1,29 @@
 # TA-Dashboard
 
+   19  vi /etc/postgresql/16/main/pg_hba.conf
+
+## Run postgresql on 0.0.0.0 and allow access
+
+Edit `/etc/postgresql/16/main/postgresql.conf`
+
+```
+listen_addresses = '*'
+```
+
+Append to `/etc/postgresql/16/main/pg_hba.conf`
+
+```
+host all all 0.0.0.0/0 trust
+```
+
+
 ## Set up database
 ```
 cd schema
 sudo -u postgres psql -f ./ta_dashboard_create.sql
 sudo -u postgres psql -f ./ta_dashboard_insert.sql
-
 ```
+
 ## Install pipx
 ```
 sudo apt install build-essential python3-dev

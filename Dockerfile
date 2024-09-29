@@ -7,7 +7,11 @@ ENV FLASK_APP=ta
 WORKDIR /app
 COPY requirements.txt .
 
+
+RUN apk update 
+RUN apk add libpq-dev gcc musl-dev
 RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
 EXPOSE 5000
