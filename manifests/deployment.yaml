@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
         - name: dashboard-app
+          imagePullPolicy: Always
           image: ghcr.io/eonuallain/ta-dashboard-be:main
           ports:
             - containerPort: 5000
