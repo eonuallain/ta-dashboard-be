@@ -7,6 +7,9 @@ from flask_sqlalchemy import SQLAlchemy
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
+#for name, value in os.environ.items():
+#    print("{0}: {1}".format(name, value))
+
 POSTGRES_URL = os.environ["POSTGRES_URL"]
 POSTGRES_USER = os.environ["POSTGRES_USER"]
 POSTGRES_PW = os.environ["POSTGRES_PW"]

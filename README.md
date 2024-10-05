@@ -70,6 +70,8 @@ docker pull ghcr.io/eonuallain/ta-dashboard:main
 ## Run docker image
 ```
 docker run -p5000:5000 ghcr.io/eonuallain/ta-dashboard:main
+or
+podman run --env-file ./schema/db.env -p5000:5000 <IMAGE-ID>
 ```
 
 ## Install minikube
@@ -79,6 +81,13 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 
 minikube start
+```
+
+## Install helm
+```
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 ```
 
 ## Install chart
@@ -138,4 +147,6 @@ To connect to your database from outside the cluster execute the following comma
     kubectl port-forward --namespace default svc/pg-minikube-postgresql 5432:5432 &
     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
 ```
+
+kubectl create configmap db-env-config --from-env-file=schema/db.env
 
