@@ -139,7 +139,6 @@ To connect to your database run the following command:
 
     kubectl run pg-minikube-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:16.3.0-debian-12-r22 --env="PGPASSWORD=$POSTGRES_PASSWORD" \
       --command -- psql --host pg-minikube-postgresql -U postgres -d postgres -p 5432
-
     > NOTE: If you access the container using bash, make sure that you execute "/opt/bitnami/scripts/postgresql/entrypoint.sh /bin/bash" in order to avoid the error "psql: local user with ID 1001} does not exist"
 
 To connect to your database from outside the cluster execute the following commands:
@@ -148,5 +147,21 @@ To connect to your database from outside the cluster execute the following comma
     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
 ```
 
+## create configmap from env file
+```
 kubectl create configmap db-env-config --from-env-file=schema/db.env
+```
 
+## argocd and port forwarding
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+## argocd - get initial password
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+or
+argocd admin initial-password -n argocd
+```
