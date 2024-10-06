@@ -165,3 +165,15 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 or
 argocd admin initial-password -n argocd
 ```
+
+## grafana
+```
+# get the service name for grafana, e.g. prom-community-grafana
+kubectl get svc |grep grafana
+
+# get admin username
+kubectl get secret --namespace default prom-community-grafana -o jsonpath="{.data.admin-user}" | base64 --decode
+
+# get admin passworld
+kubectl get secret --namespace default prom-community-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
+ 
